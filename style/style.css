@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+}
+.tete {
+    display: flex;
+    height: 150px;
+    background-color: #909090;
+}
+.tete>img {
+    margin: 15px 20px;
+    height: 70%;
+}
+.titre{
+    width: 100%;
+    height: 30%;
+}
+.navbar{
+    
+}
