@@ -15,5 +15,12 @@ body{
     height: 30%;
 }
 .navbar{
-    
+    width: 100%;
+}
+.navbar>h1{
+    text-align: center;
+}
+nav>div{
+    display: contents;
+    align-content: center;
 }
