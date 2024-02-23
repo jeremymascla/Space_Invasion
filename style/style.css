@@ -6,19 +6,6 @@
 .tete>img {
     margin: 15px 20px;
 }
-.titre{
-    width: 100%;
-}
-.navbar{
-    width: 100%;
-}
-.navbar>h1{
-    text-align: center;
-}
-nav>div{
-    display: contents;
-    align-content: center;
-}
 .copyleft {
     display:inline-block;
     transform: rotate(180deg);
