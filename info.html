@@ -11,60 +11,54 @@
 </head>
 
 <body>
-    <div class="tete">
+    <div class="tete container-fluid">
         <img src="image/Logo.webp" alt="Logo d'un vaisseau partant dans l'espace">
-        <div class="navbar">
-            <h1 class="titre">Space Invasion</h1>
-            <nav>
-                <div class="boutton" id="principal"><a href="index.html">Acceuil</a></div>
-                <div class="boutton" id="info"><a href="info.html">Information</a></div>
-                <div class="boutton" id="reservation"><a href="index.html,#">Réservation</a></div>
-            </nav>
+        <div class="w-100 d-grid">
+            <div class="column">
+                <h1 class="titre d-flex justify-content-center">Space Invasion</h1>
+                <nav class="d-flex justify-content-center">
+                    <button type="button" class="btn-circle" id="principal"><a href="index.html">Acceuil</a></button>
+                    <button type="button" class="btn-circle mx-lg-4" id="info"><a href="info.html">Information</a></button>
+                    <button type="button" class="btn-circle" id="reservation"><a href="#">Réservation</a></button>
+                </nav>
+            </div>
         </div>
     </div>
-    <div class="d-grid">
+    <div class="d-grid mx-lg-5 mb-lg-5">
         <h2>Nos Vaisseaux</h2>
-        <div class="row gx-0">
+        <div class="row gx-0" id="infoVaisseau">
             
-            <div id="ORCA" class="col-8"><a href="ORCA.html">
-                    <h3>Modele ORCA</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur suscipit praesentium aut
-                        provident sint porro dicta neque vel consequuntur voluptate eveniet perspiciatis, minima saepe
-                        tempora sequi voluptas omnis obcaecati animi harum et, repellendus illo magnam. Asperiores eius
-                        iste beatae similique!</p></a>
+            <div id="ORCA" class="col-7"><a href="ORCA.html">
+                    <h3 class="d-flex justify-content-center">Modele ORCA</h3>
+                    <p class="mx-xl-5 px-xl-5">L'ORCA est un vaisseau de transport de passagers luxueux, offrant confort, capacité et style pour des voyages élégants à travers toute la galaxie.</p></a>
             </div>
-            <div class="col-4">
-                <a href="ORCA.html"><img src="image/ORCA-entrepo.png" alt="image de vaisseau ORCA" width="75%"> </a>
+            <div class="col-4 m-xl-4">
+                <a href="ORCA.html"><img src="image/ORCA/ORCA-entrepot.png" alt="image de vaisseau ORCA" class="w-100"></a>
             </div>
            
-            <div class="col-4">
-                <img src="image/ORCA-entrepo.png" alt="image de vaisseau ORCA" width="75%">
+            <div class="col-4 m-lg-4">
+                <a href="Beluga.html"><img src="image/Beluga/Beluga_entrepot.jpg" alt="image de vaisseau Beluga" class="w-100"></a>
             </div>
-            <div class="col-8">
-                <a href="ORCA.html">
-                    <h3>Modele ORCA</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur suscipit praesentium aut
-                        provident sint porro dicta neque vel consequuntur voluptate eveniet perspiciatis, minima saepe
-                        tempora sequi voluptas omnis obcaecati animi harum et, repellendus illo magnam. Asperiores eius
-                        iste beatae similique!</p>
+            <div id="Beluga" class="col-7">
+                <a href="Beluga.html">
+                    <h3 class="d-flex justify-content-center">Modele Beluga</h3>
+                    <p>Le Beluga est un vaissai de transport de passagers </p>
                 </a>
             </div>
-            <div class="col-8">
-                <a href="ORCA.html">
-                    <h3>Modele ORCA</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur suscipit praesentium aut
-                        provident sint porro dicta neque vel consequuntur voluptate eveniet perspiciatis, minima saepe
-                        tempora sequi voluptas omnis obcaecati animi harum et, repellendus illo magnam. Asperiores eius
-                        iste beatae similique!</p>
+            <div id="Type-7" class="col-7">
+                <a href="Type-7.html">
+                    <h3 class="d-flex justify-content-center">Modele Type-7</h3>
+                    <p></p>
                 </a>
             </div>
-            <div class="col-4">
-                <img src="image/ORCA-entrepo.png" alt="image de vaisseau ORCA" width="75%">
+            <div class="col-4 mb-lg-4">
+                <a href="Type-7.html"><img src="image/Type-7/Type-7_Entrepot.webp" alt="image de vaisseau Type-7" class="w-100"></a>
             </div>
         </div>
     </div>
-    <div class="d-grid">
-        <h2 class="text-center">Qu'est ce que Space Invasion</h2>
+    <!-- zone de texte où les utilisateurs peuvent s'informer et en apprendre plus sur l'entreprise -->
+    <div class="d-grid mx-lg-5">
+        <h2 class="text-center my-lg-5">Qu'est ce que Space Invasion</h2>
         <div class="row gx-0">
             <div class="col-4">
                 <h3>Qui sommes nous</h3>
@@ -108,6 +102,11 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="d-flex justify-content-end bg-dark-subtle">
+            <span class="copyleft">&copy;</span><span>Droit public et créatif</span>
+        </div>
+    </footer>
 </body>
 
 </html>
