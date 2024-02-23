@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACE INVASION</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="icon" href="image/Logo.webp" type="image/x-icon">
+</head>
+<body>
+    <!-- Haut de page -->
+    <div class="tete container-fluid">
+        <img src="image/Logo.webp" alt="Logo d'un vaisseau partant dans l'espace">
+        <div class="w-100 d-grid">
+            <div class="column">
+                <h1 class="titre d-flex justify-content-center">Space Invasion</h1>
+                <nav class="d-flex justify-content-center">
+                    <button type="button" class="btn-circle" id="principal"><a href="index.html">Acceuil</a></button>
+                    <button type="button" class="btn-circle mx-lg-4" id="info"><a href="info.html">Information</a></button>
+                    <button type="button" class="btn-circle" id="reservation"><a href="#">Réservation</a></button>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Fin haut de page -->
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <form id="" class="form w-100" name="">
+        <div>
+            <h1>Réservation</h1>
+            <p>Bonjour, bienvenue dans le formualaire de réservation, une fois remplis vous accèderais à la liste des transports qui vous sont accessible.
+                Pensez à changer vos information si un changement doit être effectués car certains voyage ne sont pas accèssible au personne en dificulté.</p>
+            <div>
+                <p>Nom :</p>
+                <input type="text" name="" id="nom">
+            </div>
+            <div>
+                <p>Prénom :</p>
+                <input type="text" name="" id="prenom">
+            </div>
+            <div>
+                <p>Âge :</p>
+                <input type="number" name="" id="age" min="21">
+                <p>ans</p>
+            </div>
+            <div>
+                <p>Genre :</p>
+                <input type="checkbox" name="genre1" id="genre1" value="male">
+                <label for="genre1">Homme</label>
+                <input type="checkbox" name="genre2" id="genre2" value="female">
+                <label for="genre2">Femme</label>
+                <input type="checkbox" name="genre3" id="genre3" value="nogender">
+                <label for="genre3">Autre</label>
+            </div>
+            <div>
+                <p>Email :</p>
+                <input type="text" name="" id="mail">
+            </div>
+            <div>
+                <p>Incapacité</p>
+                <input type="checkbox" name="incapacitant1" id="incapacitant1" value="pregnant">
+                <label for="incapacitant1">Enceinte</label>
+                <input type="checkbox" name="incapacitant2" id="incapacitant2" value="obesity">
+                <label for="incapacitant2"></label>
+                <input type="checkbox" name="incapacitant3" id="incapacitant3" value="epileptic">
+                <label for="incapacitant3"></label>
+                <input type="checkbox" name="incapacitant4" id="incapacitant4" value="son">
+                <label for="incapacitant4"></label>
+                <input type="checkbox" name="incapacitant5" id="incapacitant5" value="ambidextre">
+                <label for="incapacitant5"></label>
+                <input type="checkbox" name="incapacitant6" id="incapacitant6" value="vieux">
+                <label for="incapacitant6"></label>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bas de page -->
+    <footer>
+        <div class="d-flex justify-content-end bg-dark-subtle">
+            <span class="copyleft">&copy;</span><span>Droit public et créatif</span>
+        </div>
+    </footer>
+    <!-- Fin bas de page -->
+    <script src="javascript/script.js"></script>
+</body>
+</html>
