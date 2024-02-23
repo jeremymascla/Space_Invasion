@@ -11,29 +11,52 @@
 </head>
 
 <body>
-    <div class="tete">
+    <div class="tete container-fluid">
         <img src="image/Logo.webp" alt="Logo d'un vaisseau partant dans l'espace">
-        <div class="navbar">
-            <h1 class="titre">Space Invasion</h1>
-            <nav>
-                <div class="boutton" id="principal"><a href="index.html">Acceuil</a></div>
-                <div class="boutton" id="info"><a href="info.html">Information</a></div>
-                <div class="boutton" id="reservation"><a href="#">Réservation</a></div>
-            </nav>
+        <div class="w-100 d-grid">
+            <div class="column">
+                <h1 class="titre d-flex justify-content-center">Space Invasion</h1>
+                <nav class="d-flex justify-content-center">
+                    <button type="button" class="btn-circle" id="principal"><a href="index.html">Acceuil</a></button>
+                    <button type="button" class="btn-circle mx-lg-4" id="info"><a href="info.html">Information</a></button>
+                    <button type="button" class="btn-circle" id="reservation"><a href="#">Réservation</a></button>
+                </nav>
+            </div>
         </div>
     </div>
-    <div>
-        <a href="info.html#ORCA">← Retour</a>
-        <h2>Vaisseau ORCA</h2>
-        <img src="image/Bp-orca.webp" alt="Modèle du vaisseau ORCA" width="100%">
-        <img src="image/ORCA_Plan.webp" alt="Plan du vaisseau ORCA" width="100%">
-        <input type="button" value="download" onclick="window.location='image/ORCA_Plan.jpg'">
+    <a href="info.html#ORCA"><button type="button">← Retour</button></a>
+    <div class="w-75 m-auto">
+        <h2 class="d-flex justify-content-center">Vaisseau ORCA</h2>
+        <p>
+            Le ORCA est un vaisseau de luxe de la série Saud Kruger, reconnu pour son design élégant et ses excellentes
+            performances en matière de transport de passagers. Conçu pour offrir un confort optimal à ses occupants,
+            l'ORCA combine une allure gracieuse avec une puissance moteur impressionnante, les voyageur pourrons
+            profiter completement de l'immensité de l'espace et les passagers VIP seront amené dans des espace ce
+            démarquant du reste du vaisseau. Avec sa capacité à accueillir un grand nombre de passagers et ses
+            équipements de pointe, il se distingue grandement dans son style et les fonctionnement présent et mis à
+            disposition pour chaque passagers. Son aménagement intérieur luxueux propose des installations de première
+            classe, incluant des cabines spacieuses, des salons de détente et des équipements de divertissement de
+            pointe, assurant ainsi un voyage confortable et agréable pour tous les passagers, l'ORCA se démarque comme
+            un symbole de prestige et de sophistication dans l'univers complexe.
+        </p>
+        <img src="image/ORCA/ORCA-entrepot.png" alt="image du vaisseau Orca dans un entrepot" class="w-100 my-lg-3">
+        <p>Le plan du vaisseau ORCA comprend plusieurs sections distinctes, notamment des cabines de passagers luxueuses
+            disposées sur plusieurs ponts pour offrir un confort optimal. En plus des cabines, il comporte des espaces
+            communs tels que des salons de détente, des bars et des zones de divertissement équipées d'écrans
+            holographiques et de systèmes de divertissement sophistiqués. Le vaisseau est également doté de quartiers
+            d'équipage, de zones techniques et de soutes de stockage pour assurer le bon fonctionnement et la sécurité
+            lors des voyages interstellaires.</p>
+        <img src="image/ORCA/ORCA_Plan.webp" alt="Plan du vaisseau ORCA" class="w-100 my-lg-3">
+        <a href="image/originel/ORCA_Plan.jpg" download="" class="d-flex justify-content-center mb-lg-5"><button
+                type="button">Télécharger version complète du plan du vaisseau</button></a>
+        <img src="image/ORCA/Bp-orca.webp" alt="Modèle du vaisseau ORCA" class="w-100 my-lg-3">
+        <a href="image/originel/" download="" class="d-flex justify-content-center mb-lg-5"><button
+                type="button">Télécharger le plan de définition du vaisseau</button></a>
     </div>
+    <a href="info.html#ORCA"><button type="button">← Retour</button></a>
     <footer>
-        <div>
-            <p>
-                <span class="copyleft">&copy;</span>
-            </p>
+        <div class="d-flex justify-content-end bg-dark-subtle">
+            <span class="copyleft">&copy;</span><span>Droit public et créatif</span>
         </div>
     </footer>
     <script src="javascript/script.js"></script>
