@@ -10,7 +10,7 @@
     display:inline-block;
     transform: rotate(180deg);
 }
-a:not(nav>button>a) {
+a:not(.btn-circle>a) {
     color: #000 !important;
     text-decoration: none !important;
 }
