@@ -23,13 +23,18 @@
         </div>
     </div>
     <div>
-        <img src="image/Escort.webp" alt="Photo d'une flotte de vaisseaux spatiaux" width="100%">
+        <picture>
+            <source media="(max-width: 575px)" srcset="image/Type-7_station-sol.png" alt="vaisseau poser au sol">
+            <source srcset="image/Escort.webp" media="(min-width: 992px)" alt="Photo d'une flotte de vaisseaux spatiaux">
+            <img  src="image/Voyage.webp" alt="vaisseau voyageant dans l'espace" width="100%">
+        </picture>
+        
     </div>
     <footer>
         <div class="d-flex justify-content-end bg-dark-subtle">
             <span class="copyleft">&copy;</span><span>Droit public et créatif</span>
         </div>
     </footer>
-    <script src="javascript/script.js"></script>
+    <script src="javascript/main.js"></script>
 </body>
 </html>
