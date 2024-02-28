@@ -3,17 +3,21 @@
     height: 150px;
     background-color: #909090;
 }
+
 .tete>img {
     margin: 15px 20px;
 }
+
 .copyleft {
-    display:inline-block;
+    display: inline-block;
     transform: rotate(180deg);
 }
+
 a:not(.btn-circle>a) {
     color: #000 !important;
     text-decoration: none !important;
 }
+
 .btn-circle {
     width: 170px;
     height: 70px;
@@ -21,4 +25,51 @@ a:not(.btn-circle>a) {
     border-radius: 35px;
     font-size: 24px;
     line-height: 1.33;
+}
+
+.img-none {
+    display: none;
+}
+
+.img-flex {
+    display: flex;
+}
+
+.inp-inblock{
+    display: inline-block;
+}
+
+.inp-none {
+    display: none;
+}
+
+@media screen and (max-width: 575px) {
+    .img-none {
+        display: flex;
+    }
+
+    .img-flex {
+        display: none;
+    }
+}
+
+.form-field.error input {
+    border-color: #dc3545;
+}
+
+.form-field.error select {
+    border: 2px solid #dc3545;
+}
+
+.form-field.success input {
+    border-color: #28a745;
+}
+
+.form-field.success select {
+    border: 2px solid #28a745;
+}
+
+
+.form-field small {
+    color: #dc3545;
 }
