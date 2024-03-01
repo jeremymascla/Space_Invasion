@@ -1,0 +1,28 @@
+#scrollToTopButton {
+    display: block;
+    z-index: 99;
+    transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    background-color: #333333bf;
+}
+
+#scrollToTopButton i {
+    color: white;
+}
+
+#scrollToTopButton:hover,
+#scrollToTopButton:focus,
+#scrollToTopButton:focus-within {
+    cursor: pointer;
+    background-color: #0078b4;
+}
