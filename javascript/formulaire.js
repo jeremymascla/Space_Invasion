@@ -10,14 +10,33 @@ let voyage2 = document.forms.formulaire.date_debut;
 let choix = document.forms.formulaire.choix;
 let choixSelect = document.querySelector('.radio');
 
+// Initialise le calendrier au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+
+    var datePicker = document.getElementById('date_debut');
+    var today = new Date().toISOString().split('T')[0];
+    datePicker.min = today;
+
+    new Litepicker({
+        element: document.getElementById('date_range'),
+        singleMode: false, // Permet de sélectionner une plage de dates
+        lang: "fr", // Définit la langue du calendrier en français
+        numberOfMonths: 2, // Affiche deux mois dans le calendrier pour la sélection de la plage de dates
+        minDate: new Date()-1
+    });
+})
+
+// Permet lors du click sur les boutons radio de changer de type de calendrier
 choixSelect.addEventListener("click", () => {
     let choixV = choix.value;
     if (choixV == "aller") {
+        // Fait disparaitre le calendrier simple pour le complexe
         voyage2.classList.remove("inp-none");
         voyage2.classList.add("inp-inblock");
         voyage1.classList.remove("inp-inblock");
         voyage1.classList.add("inp-none");
     } else {
+        // Fait disparaitre le calendrier simple pour le complexe
         voyage2.classList.remove("inp-inblock");
         voyage2.classList.add("inp-none");
         voyage1.classList.remove("inp-none");
@@ -25,7 +44,7 @@ choixSelect.addEventListener("click", () => {
     }
 });
 
-// fonction vérification si vide
+// Vérifie si le contenue est vide
 function required(elementValue) {
     if (elementValue == "") {
         return false
@@ -33,7 +52,8 @@ function required(elementValue) {
         return true
     }
 }
-// fonction vérification longueur
+
+// Vérifie si la longueur est comprise entre le min et la max
 function between(length, min, max) {
     if (length < min || length > max) {
         return false
@@ -41,17 +61,17 @@ function between(length, min, max) {
         return true
     }
 }
-// fonction de vérification lettre seulement
+// Vérifie si le contenue contient des lettres seulement
 function nomValid(elementValue) {
     const re = /^[a-zA-Z]+$/;
     return re.test(elementValue);
 }
-// fonction vérification format email
+// Vérifie que le contenue soit dans un format email
 function emailOk(elementValue) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(elementValue);
 }
-// une fonction qui permette d'afficher les erreurs en rouge
+// Permet d'afficher les erreurs en rouge
 function showError(input, message) {
     const formField = input.parentElement;
     formField.classList.remove("success");
@@ -59,7 +79,7 @@ function showError(input, message) {
     const errorEl = formField.querySelector("small");
     errorEl.textContent = message;
 }
-// une fonction qui permette d'afficher l'element valide en vert
+// Permet d'afficher l'element valide en vert
 function showSuccess(input) {
     const formField = input.parentElement;
     formField.classList.remove("error");
@@ -68,7 +88,7 @@ function showSuccess(input) {
     errorEl.textContent = "";
 }
 
-// fonction vérifie contenu non vide , longueur entre 3 et 25 seulement des lettres
+// Vérifie le contenue du nom si il est entre 3 et 25 caractères, qu'il ne contiennent que des lettres et que sont contenue ne soit pas vide
 const checkNom = () => {
     let valid = false;
     const min = 3, max = 25;
@@ -92,7 +112,8 @@ const checkNom = () => {
     return valid;
 
 }
-// fonction vérifie contenu non vide , longueur entre 3 et 25 seulement des lettres
+
+// Vérifie le contenue du prénom si il est entre 3 et 25 caractères, qu'il ne contiennent que des lettres et que sont contenue ne soit pas vide
 const checkPrenom = () => {
     let valid = false
     const min = 3,
@@ -117,7 +138,8 @@ const checkPrenom = () => {
     return valid;
 
 }
-// Vérifie input mail non vide et conforme à la notation mail
+
+// Vérifie si le contenue du mail est en format email et qu'il ne soit pas vide
 const checkEmail = () => {
     let valid = false
     const mail = email.value.trim()
@@ -137,7 +159,8 @@ const checkEmail = () => {
     }
     return valid;
 }
-// fonction vérifie si non vide et utilisateur à + de 21 ans
+
+// Vérifie si la valeur age entrée est situé entre 21 et 110 et qu'il ne soit pas vide
 const checkAge = () => {
     let valid = false
     const ageTrim = age.value;
@@ -154,7 +177,8 @@ const checkAge = () => {
     }
     return valid;
 }
-// fonction vérifie le genre et valide
+
+// Vérifie si la selection du genre a été faite
 const checkGenre = () => {
     let valid = false
     const sex = genre.value
@@ -166,22 +190,13 @@ const checkGenre = () => {
     }
     return valid
 }
-// Vérifie si 
+
+// Vérifie si la date est entrée et si elle est bonne
 const checkVoyage = () => {
     let valid = false
     let choixV = choix.value;
     if (choixV == "aller") {
-        let voyage = voyage1;
-        const dateVoyage = voyage.value;
-        console.log(dateVoyage);
-        if (!required(dateVoyage)) {
-            showError(voyage, "Vous devez mettre une date")
-        } else {
-            showSuccess(voyage);
-            valid = true;
-        }
-        return valid
-    } else {
+        // Vérification de la date en aller simple
         let voyage = voyage2;
         const dateVoyage = voyage.value;
         console.log(dateVoyage);
@@ -192,18 +207,27 @@ const checkVoyage = () => {
             valid = true;
         }
         return valid
+    } else {
+        // Vérification de la date en aller retour
+        let voyage = voyage1;
+        const dateVoyage = voyage.value;
+        console.log(dateVoyage);
+        voyageDepart = dateVoyage.substr(0, 10);
+        voyageRetour = dateVoyage.substr(13);
+        if (!required(dateVoyage)) {
+            showError(voyage, "Vous devez mettre une date")
+        } else if (voyageDepart > voyageRetour) {
+            // Cet Erreur n'est jamais censé arrivé du à la disposition du calendrier mais rien n'est impossible
+            showError(voyage, "Vous ne pouvez pas mettre la date de retour avant la date de départ")
+        } else {
+            showSuccess(voyage);
+            valid = true;
+        }
+        return valid
     }
 }
 
-// Initialise le calendrier pour la plage de dates
-var datepicker = new Litepicker({
-    element: document.getElementById('date_range'),
-    singleMode: false, // Permet de sélectionner une plage de dates
-    lang: "fr", // Définit la langue du calendrier (français)
-    numberOfMonths: 2, // Affiche deux mois dans le calendrier pour la sélection de la plage de dates
-    minDate: new Date()
-});
-
+// Permet de changer selectier la valeur à choisir lors de la vérification final
 const leVoyage = () => {
     let choixV = choix.value;
     if (choixV == "aller") {
@@ -214,7 +238,8 @@ const leVoyage = () => {
         return voyage
     }
 }
-// écouteur d'évènement pour éviter la surcharge au serveur
+
+// Lors de l'appuie bouton, vérifie si tout est conforme et prépare les valeurs à être envoyer
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     let nameOk = checkNom(),
@@ -237,7 +262,7 @@ form.addEventListener('submit', (e) => {
         console.log("non");
     } else if (!required(voyageRetour)) {
         console.log(nomOk, prenomOk, ageOk, mailOk, genreOk, voyageDepart, "pas de retour");
-    }else {
+    } else {
         console.log(nomOk, prenomOk, ageOk, mailOk, genreOk, voyageDepart, voyageRetour);
     }
 
