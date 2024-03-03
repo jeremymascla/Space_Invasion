@@ -27,29 +27,27 @@
         </div>
     </div>
     <!-- Fin haut de page -->
-    <form id="formulaire" class="form w-100" name="formulaire">
-        <h1>Réservation</h1>
+    <form id="formulaire" class="form w-100 d-inline-flex align-items-center flex-column px-5 py-3" name="formulaire">
+        <h1 class="m-3 p-2">Réservation</h1>
         <p>Bonjour, bienvenue dans le formualaire de réservation, une fois remplis vous accèderais à la liste des
-            transports qui vous sont accessible.
-            Pensez à changer vos information si un changement doit être effectués car certains voyage ne sont pas
-            accèssible au personne en dificulté.</p>
+            transports qui vous sont accessible.</p>
         <div class="form-field nom">
-            <label for="nom">Nom :</label>
+            <label class="m-3" for="nom">Nom :</label>
             <input type="text" name="nom" id="nom" placeholder="Entrez votre nom">
             <small></small>
         </div>
         <div class="form-field prenom">
-            <label for="prenom">Prénom :</label>
+            <label class="m-3" for="prenom">Prénom :</label>
             <input type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom">
             <small></small>
         </div>
         <div class="form-field age">
-            <label for="age">Âge :</label>
+            <label class="m-3" for="age">Âge :</label>
             <input type="number" name="age" id="age" placeholder="Entrez votre âge">
             <small></small>
         </div>
         <div class="form-field genre">
-            <label for="genre">Genre :</label>
+            <label class="m-3" for="genre">Genre :</label>
             <select name="genre" id="genre">
                 <option selected disabled value=""> Choisissez votre genre</option>
                 <option>Autre</option>
@@ -59,37 +57,37 @@
             <small></small>
         </div>
         <div class="form-field mail">
-            <label for="mail">Email :</label>
+            <label class="m-3" for="mail">Email :</label>
             <input type="text" name="mail" id="mail" placeholder="Entrez votre adresse mail">
             <small></small>
         </div>
         <div class="form-field radio">
-            <label for="choix">Type de voyage :</label>
+            <label class="m-3" for="choix">Type de voyage :</label>
             <input type="radio" name="choix" id="aller" value="aller" checked>
-            <label for="aller">Aller</label>
+            <label class="m-3" for="aller">Aller</label>
             <input type="radio" name="choix" id="retour" value="retour">
-            <label for="retour">Aller - Retour</label>
+            <label class="m-3" for="retour">Aller - Retour</label>
         </div>
         <div class="form-field date">
-            <label for="date_range">Date de voyage :</label>
+            <label class="m-3" for="date_range">Date de voyage :</label>
             <input type="date" id="date_debut" name="date_debut" class="inp-inblock">
             <input type="text" id="date_range" name="date_range" class="inp-none" readonly>
             <small></small>
         </div>
         <div>
             <p>Incapacité</p>
-            <input type="checkbox" name="patien" id="patien1" value="1">
-            <label for="patien1">Enceinte</label>
-            <input type="checkbox" name="patien" id="patien2" value="2">
-            <label for="patien2">Obésité</label>
-            <input type="checkbox" name="patien" id="patien3" value="3">
-            <label for="patien3">Épileptique</label>
-            <input type="checkbox" name="patien" id="patien4" value="4">
-            <label for="patien4">TDAH</label>
-            <input type="checkbox" name="patien" id="patien5" value="5">
-            <label for="patien5">Mobilité réduit</label>
-            <input type="checkbox" name="patien" id="patien6" value="6">
-            <label for="patien6">Sénior</label>
+            <input type="checkbox" name="patien" id="patien1">
+            <label class="m-3" for="patien1">Enceinte</label>
+            <input type="checkbox" name="patien" id="patien2">
+            <label class="m-3" for="patien2">Obésité</label>
+            <input type="checkbox" name="patien" id="patien3">
+            <label class="m-3" for="patien3">Épileptique</label>
+            <input type="checkbox" name="patien" id="patien4">
+            <label class="m-3" for="patien4">TDAH</label>
+            <input type="checkbox" name="patien" id="patien5">
+            <label class="m-3" for="patien5">Mobilité réduit</label>
+            <input type="checkbox" name="patien" id="patien6">
+            <label class="m-3" for="patien6">Sénior</label>
         </div>
 
         <button type="submit" id="bouton">Envoie</button>
