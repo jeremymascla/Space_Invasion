@@ -5,8 +5,8 @@ const email = document.forms.formulaire.mail;
 const age = document.forms.formulaire.age;
 const genre = document.forms.formulaire.genre;
 let user = [];
-let voyage1 = document.forms.formulaire.date_range;
-let voyage2 = document.forms.formulaire.date_debut;
+let voyage2 = document.forms.formulaire.date_range;
+let voyage1 = document.forms.formulaire.date_debut;
 let choix = document.forms.formulaire.choix;
 let choixSelect = document.querySelector('.radio');
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         singleMode: false, // Permet de sélectionner une plage de dates
         lang: "fr", // Définit la langue du calendrier en français
         numberOfMonths: 2, // Affiche deux mois dans le calendrier pour la sélection de la plage de dates
-        minDate: new Date()-1
+        minDate: new Date() - 1
     });
 })
 
@@ -31,16 +31,16 @@ choixSelect.addEventListener("click", () => {
     let choixV = choix.value;
     if (choixV == "aller") {
         // Fait disparaitre le calendrier simple pour le complexe
-        voyage2.classList.remove("inp-none");
-        voyage2.classList.add("inp-inblock");
-        voyage1.classList.remove("inp-inblock");
-        voyage1.classList.add("inp-none");
-    } else {
-        // Fait disparaitre le calendrier simple pour le complexe
-        voyage2.classList.remove("inp-inblock");
-        voyage2.classList.add("inp-none");
         voyage1.classList.remove("inp-none");
         voyage1.classList.add("inp-inblock");
+        voyage2.classList.remove("inp-inblock");
+        voyage2.classList.add("inp-none");
+    } else {
+        // Fait disparaitre le calendrier simple pour le complexe
+        voyage1.classList.remove("inp-inblock");
+        voyage1.classList.add("inp-none");
+        voyage2.classList.remove("inp-none");
+        voyage2.classList.add("inp-inblock");
     }
 });
 
@@ -197,7 +197,7 @@ const checkVoyage = () => {
     let choixV = choix.value;
     if (choixV == "aller") {
         // Vérification de la date en aller simple
-        let voyage = voyage2;
+        let voyage = voyage1;
         const dateVoyage = voyage.value;
         console.log(dateVoyage);
         if (!required(dateVoyage)) {
@@ -209,7 +209,7 @@ const checkVoyage = () => {
         return valid
     } else {
         // Vérification de la date en aller retour
-        let voyage = voyage1;
+        let voyage = voyage2;
         const dateVoyage = voyage.value;
         console.log(dateVoyage);
         voyageDepart = dateVoyage.substr(0, 10);
@@ -239,6 +239,36 @@ const leVoyage = () => {
     }
 }
 
+// Permet de mettre les selcetions d'invalidité dans une constante pour être par la suite envoyer dans le local storage
+const invalidité = () => {
+    let preg = document.querySelector('#patien1');
+    let obe = document.querySelector('#patien2');
+    let epi = document.querySelector('#patien3');
+    let nerf = document.querySelector('#patien4');
+    let mobilite = document.querySelector('#patien5');
+    let vieux = document.querySelector('#patien6');
+    if (preg.checked) {
+        user.push("enceinte");
+    }
+    if (obe.checked) {
+        user.push("obesite");
+    }
+    if (epi.checked) {
+        user.push("epileptique");
+    }
+    if (nerf.checked) {
+        user.push("tdah");
+    }
+    if (mobilite.checked) {
+        user.push("mobilité");
+    }
+    if (vieux.checked) {
+        user.push("senior");
+    }
+    // console.log(user)
+    return user
+}
+
 // Lors de l'appuie bouton, vérifie si tout est conforme et prépare les valeurs à être envoyer
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -255,15 +285,64 @@ form.addEventListener('submit', (e) => {
         genreOk = genre.value,
         voyageOk = leVoyage(),
         voyageDepart = voyageOk.substr(0, 10),
-        voyageRetour = voyageOk.substr(13);
+        voyageRetour = voyageOk.substr(13),
+        invalid = invalidité();
 
     let isFormValid = nameOk && firstNameOk && emailOk && isAgeOk && isSexOk && isVoyageOk;
     if (!isFormValid) {
-        console.log("non");
+        alert("Vous n'avez pas entrez toutes les données nécessaire au formulaire")
     } else if (!required(voyageRetour)) {
-        console.log(nomOk, prenomOk, ageOk, mailOk, genreOk, voyageDepart, "pas de retour");
+        let client = nomOk + "," + prenomOk + "," + ageOk + "," + mailOk + "," + genreOk + "," + voyageDepart + ",pas de retour," + invalid;
+        // console.log(client)
+        // localStorage.setItem('client', JSON.stringify(client))
+        bienvenueA(nomOk,prenomOk,genreOk,mailOk,ageOk,voyageDepart)
     } else {
-        console.log(nomOk, prenomOk, ageOk, mailOk, genreOk, voyageDepart, voyageRetour);
+        let client = nomOk + "," + prenomOk + "," + ageOk + "," + mailOk + "," + genreOk + "," + voyageDepart + "," + voyageRetour + "," + invalid;
+        // console.log(client)
+        // localStorage.setItem('client', JSON.stringify(client))
+        bienvenueAR(nomOk,prenomOk,genreOk,mailOk,ageOk,voyageDepart,voyageRetour)
     }
-
 }) 
+
+function bienvenueA(nom,prenom,genre,email,age,voyage) {
+    if (genre == "Homme") {
+        alert(`Bienvenue parmi les voyages de SPACE INVASION.
+        Monsieur ${nom} ${prenom} âgé de ${age} ans,
+        nous confirmons votre voyage pour le ${voyage}, votre adresse mail est ${email}.
+        
+        Merci de nous faire confiance est d'utilisé nos service`)
+    } else if (genre == "Femme") {
+        alert(`Bienvenue parmi les voyages de SPACE INVASION.
+        Madame/Mademoiselle ${nom} ${prenom} âgé de ${age} ans,
+        nous confirmons votre voyage pour le ${voyage}, votre adresse mail est ${email}.
+        
+        Merci de nous faire confiance est d'utilisé nos service`)
+    } else {
+        alert(`Bienvenue parmi les voyages de SPACE INVASION.
+        Vous êtes ${nom} ${prenom} âgé de ${age} ans,
+        nous confirmons votre voyage pour le ${voyage}, votre adresse mail est ${email}.
+        
+        Merci de nous faire confiance est d'utilisé nos service`)
+    }
+}
+function bienvenueAR(nom,prenom,genre,email,age,voyage,voyageR) {
+    if (genre == "Homme") {
+        alert(`Bienvenue parmi les voyages de SPACE INVASION.
+        Monsieur ${nom} ${prenom} âgé de ${age} ans,
+        nous confirmons votre voyage ayant pour départ le ${voyage} et votre retour pour le ${voyageR}, votre adresse mail est ${email}.
+        
+        Merci de nous faire confiance est d'utilisé nos service`)
+    } else if (genre == "Femme") {
+        alert(`Bienvenue parmi les voyages de SPACE INVASION.
+        Madame/Mademoiselle ${nom} ${prenom} âgé de ${age} ans,
+        nous confirmons votre voyage ayant pour départ le ${voyage} et votre retour pour le ${voyageR}, votre adresse mail est ${email}.
+        
+        Merci de nous faire confiance est d'utilisé nos service`)
+    } else {
+        alert(`Bienvenue parmi les voyages de SPACE INVASION.
+        Vous êtes ${nom} ${prenom} âgé de ${age} ans,
+        nous confirmons votre voyage ayant pour départ le ${voyage} et votre retour pour le ${voyageR}, votre adresse mail est ${email}.
+        
+        Merci de nous faire confiance est d'utilisé nos service`)
+    }
+}
