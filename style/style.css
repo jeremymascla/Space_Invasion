@@ -75,4 +75,8 @@ a:not(.btn-circle>a) {
 }
 .dark {
     background: #000;
-}       
+}
+.dark>p {
+    color: #fff;
+    font-size: 3rem;
+}
