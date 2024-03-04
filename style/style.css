@@ -73,3 +73,6 @@ a:not(.btn-circle>a) {
 .form-field small {
     color: #dc3545;
 }
+.dark {
+    background: #000;
+}       
