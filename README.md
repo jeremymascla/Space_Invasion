@@ -9,3 +9,5 @@ On peut y voir que j'y ai noté les dates limites de fin de projet, fin de prép
 Ensuite je me suis mis au maquettage sur Figma avec lequel j'ai appliquer les points vu dans le trello
 
 Et sur ce voilà le link Figma : https://www.figma.com/file/L7sGYuuhhLT3ahzx7oUuuc/Main?type=design&node-id=0%3A1&mode=design&t=efE5cQh9tgRb1CtN-1
+
+Pensez à appelé les bibliothèque npm pour que le site puisse avoir ces fonctionnalité
